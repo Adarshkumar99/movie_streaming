@@ -1,0 +1,8 @@
+.netflix-3d {
+    perspective: 800px;
+}
+
+.netflix-text {
+    transform: rotateX(18deg) scaleY(1.1);
+    transform-origin: bottom;
+}
