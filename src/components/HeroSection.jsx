@@ -4,30 +4,32 @@ const HeroSection = ({ heroMovie, trailerKey, muted, setMuted }) => {
   if (!heroMovie) return null;
 
   return (
-    <section className="relative h-[100vh] overflow-visible">
-
-      {/* Video / Image */}
-      {trailerKey ? (
-        <iframe
-          className="absolute inset-0 w-full h-full scale-135"
-          src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1&mute=${muted ? 1 : 0}&controls=0&loop=1&playlist=${trailerKey}`}
-          allow="autoplay"
-        />
-      ) : (
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${IMG_URL}${heroMovie.backdrop_path})`,
-          }}
-        />
-      )}
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
+    <section className="relative h-[100vh] w-full overflow-hidden no-scrollbar">
+      <div className="absolute inset-0">
+        {/* Video / Image */}
+        {trailerKey ? (
+          <div className="relative w-full h-full">
+            <iframe
+              className="w-full h-full scale-150"
+              src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1&mute=${muted ? 1 : 0}&controls=0&loop=1&playlist=${trailerKey}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        ) : (
+          <img
+            src={`${IMG_URL}${heroMovie.backdrop_path}`}
+            alt={heroMovie.title}
+            className="w-full h-full object-cover"
+          />
+        )}
+        {/* Overlay */}
+        <div className="absolute h-screen inset-0 bg-gradient-to-r from-black via-black/50 to-transparent" />
+      </div>
 
       {/* Content */}
-      <div className="relative z-10 px-16 max-w-xl h-full flex flex-col justify-center">
-        <h1 className="text-5xl font-bold mb-4">
+      <div className="relative z-10 px-6 md:px-16 max-w-xl h-full flex flex-col justify-center">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4">
           {heroMovie.title}
         </h1>
 
