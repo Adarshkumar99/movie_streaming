@@ -12,9 +12,7 @@ export const api = axios.create({
 
 export const IMG_URL = "https://image.tmdb.org/t/p/original";
 
-export const fetchPopular = () => api.get("/movie/popular");
-export const fetchTopRated = () => api.get("/movie/top_rated");
-export const fetchUpcoming = () => api.get("/movie/upcoming");
+export const fetchMovies = (type) => api.get(`/movie/${type}`);
 export const fetchTrendingDay = () => api.get("trending/movie/day");
 export const fetchTrendingWeek = () => api.get("trending/movie/week");
 export const fetchMovieVideos = (id) => api.get(`/movie/${id}/videos`);
@@ -23,3 +21,9 @@ export const fetchSimilar = (id) => api.get(`/movie/${id}/similar`);
 export const searchMovies = (query) => api.get("/search/movie", {
   params: { query },
 });
+
+
+export const fetchTvShows = (type) => api.get(`/tv/${type}`);
+export const fetchTvShowVideos = (id) => api.get(`/tv/${id}/videos`);
+export const fetchTvShowDetails = (id) => api.get(`/tv/${id}`);
+export const fetchTvShowSimilar = (id) => api.get(`/tv/${id}/similar`);

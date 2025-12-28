@@ -1,19 +1,14 @@
 import { useState } from "react"
-import Header from "../components/Header"
 import HeroSection from "../components/HeroSection"
 import MovieRow from "../components/MovieRow"
 import { useHomeData } from "../hooks/useHomeData"
-import Footer from "../components/Footer"
 
 const Home = () => {
-  const { heroMovie, trailerKey, popular, topRated, upcoming, moviesDay, moviesWeek } =
+  const { heroMovie, trailerKey, popular, topRated, upcoming, moviesDay, moviesWeek, muted, setMuted } =
     useHomeData()
-
-  const [muted, setMuted] = useState(true)
 
   return (
     <>
-      <Header />
 
       <HeroSection
         heroMovie={heroMovie}
@@ -28,7 +23,6 @@ const Home = () => {
       <MovieRow title="Upcoming" movies={upcoming} />
       <MovieRow title="Weekly Trends" movies={moviesWeek} />
 
-      <Footer />
 
     </>
   )

@@ -3,24 +3,39 @@ import {
   fetchMovieDetails,
   fetchMovieVideos,
   fetchSimilar,
+  fetchTvShowSimilar,
+  fetchTvShowDetails,
+  fetchTvShowVideos
 } from "../api/tmdb";
 
-export const useMovieDetail = (id) => {
+export const useMovieDetail = (id, type) => {
   const [movie, setMovie] = useState(null);
   const [trailerKey, setTrailerKey] = useState("");
   const [similar, setSimilar] = useState([]);
 
   useEffect(() => {
-    const loadMovie = async () => {
+    const loadData = async () => {
       try {
-        const movieRes = await fetchMovieDetails(id);
-        setMovie(movieRes.data);
+        const details =
+          type === "movie"
+            ? await fetchMovieDetails(id)
+            : await fetchTvShowDetails(id);
 
-        const top = await fetchSimilar(id);
-        setSimilar(top.data.results);
+        setMovie(details.data);
 
-        const videoRes = await fetchMovieVideos(id);
-        const trailer = videoRes.data.results.find(
+        const similarRes =
+          type === "movie"
+            ? await fetchSimilar(id)
+            : await fetchTvShowSimilar(id);
+
+        setSimilar(similarRes.data.results);
+
+        const videos =
+          type === "movie"
+            ? await fetchMovieVideos(id)
+            : await fetchTvShowVideos(id);
+
+        const trailer = videos.data.results.find(
           (v) => v.site === "YouTube" && v.type === "Trailer"
         );
 
@@ -30,8 +45,9 @@ export const useMovieDetail = (id) => {
       }
     };
 
-    loadMovie();
-  }, [id]);
+    loadData();
+  }, [id, type]);
 
   return { movie, trailerKey, similar };
 };
+

@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import {
-  fetchPopular,
-  fetchTopRated,
-  fetchUpcoming,
+  fetchMovies,
   fetchMovieVideos,
   fetchTrendingDay,
-  fetchTrendingWeek
+  fetchTrendingWeek,
+  fetchTvShows
 } from "../api/tmdb";
 
 export const useHomeData = () => {
@@ -16,16 +15,26 @@ export const useHomeData = () => {
   const [upcoming, setUpcoming] = useState([]);
   const [moviesDay, setDay] = useState([]);
   const [moviesWeek, setWeek] = useState([]);
+  const [tvPopular, setTvPopular] = useState([]);
+  const [tvTopRated, setTvTopRated] = useState([]);
+  const [tvShows, setTvShows] = useState([]);
+  const [tvAirShow, setTvAirShow] = useState([]);
+  const [heroTvshow, setHeroTvShow] = useState(null);
+  const [muted, setMuted] = useState(true)
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [pop, top, up, day, week] = await Promise.all([
-          fetchPopular(),
-          fetchTopRated(),
-          fetchUpcoming(),
+        const [pop, top, up, day, week, tvPop, tvTop, tv_On, tv_Air] = await Promise.all([
+          fetchMovies('popular'),
+          fetchMovies('top_rated'),
+          fetchMovies('upcoming'),
           fetchTrendingDay(),
           fetchTrendingWeek(),
+          fetchTvShows('top_rated'),
+          fetchTvShows('top_rated'),
+          fetchTvShows('on_the_air'),
+          fetchTvShows('airing_today')
 
         ]);
 
@@ -34,6 +43,10 @@ export const useHomeData = () => {
         setUpcoming(up.data.results);
         setDay(day.data.results);
         setWeek(week.data.results);
+        setTvPopular(tvPop.data.results);
+        setTvTopRated(tvTop.data.results);
+        setTvShows(tv_On.data.results);
+        setTvAirShow(tv_Air.data.results);
 
         // trailer
         const hero =
@@ -41,6 +54,12 @@ export const useHomeData = () => {
           Math.floor(Math.random() * pop.data.results.length)
           ];
         setHeroMovie(hero);
+
+        const BannerTvShow =
+          tvPop.data.results[
+          Math.floor(Math.random() * tvPop.data.results.length)
+          ];
+        setHeroTvShow(BannerTvShow);
 
         const videoRes = await fetchMovieVideos(hero.id);
         const trailer = videoRes.data.results.find(
@@ -56,5 +75,5 @@ export const useHomeData = () => {
     loadData();
   }, []);
 
-  return { heroMovie, trailerKey, popular, topRated, upcoming, moviesDay, moviesWeek };
+  return { heroMovie, trailerKey, popular, topRated, upcoming, moviesDay, moviesWeek, tvPopular, tvTopRated, tvShows, tvAirShow, heroTvshow, muted, setMuted };
 };

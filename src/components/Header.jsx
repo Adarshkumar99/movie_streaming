@@ -33,16 +33,24 @@ const Header = () => {
       `}
     >
       <div className="max-w-7xl mx-auto px-4">
-        {/* TOP ROW */}
         <div className="flex items-center justify-between h-16">
+          <div className="relative">
+            <div className="flex items-center gap-8">
+              {/* LOGO */}
+              <Link
+                to="/"
+                className="text-red-600 text-2xl font-bold"
+              >
+                NETFLIX
+              </Link>
 
-          {/* LOGO */}
-          <Link
-            to="/"
-            className="text-red-600 text-2xl font-bold"
-          >
-            NETFLIX
-          </Link>
+              {/* DESKTOP LINKS */}
+              <div className="hidden md:flex items-center gap-6 text-white">
+                <Link to="/" className="hover:text-gray-300">Home</Link>
+                <Link to="/genre/tv_shows" className="hover:text-gray-300">Shows</Link>
+              </div>
+            </div>
+          </div>
 
           {/* DESKTOP SEARCH */}
           <form
