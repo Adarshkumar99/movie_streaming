@@ -3,11 +3,21 @@ import Header from "../components/Header";
 import { useMovieDetail } from "../hooks/useMovieDetail";
 import MovieRow from "../components/MovieRow"
 import Footer from "../components/Footer";
+import { useEffect } from "react";
 
 
 const MovieDetail = () => {
   const { id } = useParams();
   const { movie, trailerKey, similar } = useMovieDetail(id);
+
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [id]);
+
 
   if (!movie) return null;
 
