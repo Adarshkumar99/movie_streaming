@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, NavLink, Link } from "react-router-dom";
 
 const Header = () => {
   const [isBlack, setIsBlack] = useState(false);
@@ -45,10 +45,17 @@ const Header = () => {
               </Link>
 
               {/* DESKTOP LINKS */}
-              <div className="hidden md:flex items-center gap-6 text-white">
-                <Link to="/" className="hover:text-gray-300">Home</Link>
-                <Link to="/genre/tv_shows" className="hover:text-gray-300">Shows</Link>
+              <div className="hidden md:flex items-center gap-6">
+                <NavLink to="/" end className={({ isActive }) => isActive ? "text-white font-semibold"
+                  : "text-gray-400 hover:text-gray-300"}>Home
+                </NavLink>
+
+                <NavLink
+                  to="/genre/tv_shows" className={({ isActive }) => isActive ? "text-white font-semibold" : "text-gray-400 hover:text-gray-300"}>
+                  Shows
+                </NavLink>
               </div>
+
             </div>
           </div>
 
