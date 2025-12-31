@@ -1,17 +1,26 @@
 import { useNavigate } from "react-router-dom";
 import { IMG_URL } from "../api/tmdb";
 import { useRef } from "react";
+import { Movie } from "../types/Movie";
 
-const MovieRow = ({ title, movies, isFirstRow, searching }) => {
+type MoviewRowProps = {
+  title: string;
+  movies: Movie[];
+  isFirstRow?: boolean;
+  searching?: boolean;
+  mediaType: "movie" | "tv";
+}
+
+const MovieRow = ({ title, movies, isFirstRow = false, searching = false, mediaType }: MoviewRowProps) => {
   const navigate = useNavigate();
-  const rowRef = useRef(null);
+  const rowRef = useRef<HTMLDivElement | null>(null);
 
   const scrollLeft = () => {
-    rowRef.current.scrollBy({ left: -600, behavior: "smooth" });
+    rowRef.current?.scrollBy({ left: -600, behavior: "smooth" });
   };
 
   const scrollRight = () => {
-    rowRef.current.scrollBy({ left: 600, behavior: "smooth" });
+    rowRef.current?.scrollBy({ left: 600, behavior: "smooth" });
   };
 
   return (
@@ -42,7 +51,7 @@ const MovieRow = ({ title, movies, isFirstRow, searching }) => {
           {movies.map((m) => (
             <div
               key={m.id}
-              onClick={() => navigate(`/movie/${m.id}`)}
+              onClick={() => navigate(`/${mediaType}/${m.id}`)}
               className="min-w-[200px] cursor-pointer"
             >
               <img

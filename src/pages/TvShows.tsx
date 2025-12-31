@@ -13,10 +13,10 @@ const TvShows = () => {
         setMuted={setMuted}
       />
 
-      <MovieRow title="TV Popular" movies={tvPopular} isFirstRow />
-      <MovieRow title="Shows" movies={tvShows} />
-      <MovieRow title="Top Rated" movies={tvTopRated} />
-      <MovieRow title="TV AirShow" movies={tvAirShow} />
+      <MovieRow title="TV Popular" movies={tvPopular} mediaType="tv" isFirstRow />
+      <MovieRow title="Shows" movies={tvShows} mediaType="tv" />
+      <MovieRow title="Top Rated" movies={tvTopRated} mediaType="tv" />
+      <MovieRow title="TV AirShow" movies={tvAirShow} mediaType="tv" />
     </>
   )
 }

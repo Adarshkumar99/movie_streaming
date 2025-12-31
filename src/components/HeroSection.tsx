@@ -1,6 +1,15 @@
 import { IMG_URL } from "../api/tmdb";
 import { Link } from "react-router-dom";
-const HeroSection = ({ heroMovie, trailerKey, muted, setMuted }) => {
+import { Movie } from "../types/Movie";
+import { Dispatch, SetStateAction } from "react";
+
+type HeroSectionProps = {
+  heroMovie: Movie | null;
+  trailerKey: string;
+  muted: boolean;
+  setMuted: Dispatch<SetStateAction<boolean>>;
+};
+const HeroSection = ({ heroMovie, trailerKey, muted, setMuted }: HeroSectionProps) => {
   if (!heroMovie) return null;
 
   return (
@@ -54,20 +63,9 @@ const HeroSection = ({ heroMovie, trailerKey, muted, setMuted }) => {
       </div>
 
       {/* VOLUME BUTTON */}
-      <button
-        onClick={() => setMuted(!muted)}
-        className="
-    absolute right-6 bottom-60 z-30
-    w-12 h-12
-    flex items-center justify-center
-    rounded-full
-    border border-white/80
-    bg-black/20
-    backdrop-blur-sm
-    hover:bg-black/40
-    transition
-  "
-      >
+      <button onClick={() => setMuted(prev => !prev)} className="absolute right-6 bottom-60 z-30 w-12 h-12
+    flex items-center justify-center rounded-full border border-white/80 bg-black/20 backdrop-blur-sm
+    hover:bg-black/40 transition">
         {muted ? (
           // 🔇 Muted icon
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"

@@ -4,11 +4,12 @@ import { searchMovies } from "../api/tmdb";
 import MovieRow from "../components/MovieRow";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { Movie } from "../types/Movie";
 
 const Search = () => {
   const [params] = useSearchParams();
   const query = params.get("q");
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState<Movie[]>([]);
 
 
   useEffect(() => {
@@ -16,7 +17,7 @@ const Search = () => {
 
     const fetchResults = async () => {
       const res = await searchMovies(query);
-      setResults(res.data.results);
+      setResults(res);
     };
 
     fetchResults();
@@ -35,7 +36,7 @@ const Search = () => {
             No movies found matching your search.
           </h3>
         ) : (
-          <MovieRow title="Results" movies={results} searching />
+          <MovieRow title="Results" movies={results} mediaType="tv" searching />
         )}
 
 

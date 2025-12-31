@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useNavigate, NavLink, Link } from "react-router-dom";
 
 const Header = () => {
-  const [isBlack, setIsBlack] = useState(false);
-  const [query, setQuery] = useState("");
-  const [openSearch, setOpenSearch] = useState(false);
+  const [isBlack, setIsBlack] = useState<boolean>(false);
+  const [query, setQuery] = useState<string>("");
+  const [openSearch, setOpenSearch] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -24,11 +24,7 @@ const Header = () => {
   }, []);
 
   return (
-    <nav
-      className={`
-        fixed top-0 left-0 right-0
-        z-50 overflow-hidden
-        transition-colors duration-500
+    <nav className={`fixed top-0 left-0 right-0 z-50 overflow-hidden transition-colors duration-500
         ${isBlack || openSearch ? "bg-black" : "bg-transparent"}
       `}
     >

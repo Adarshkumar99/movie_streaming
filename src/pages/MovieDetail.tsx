@@ -5,15 +5,16 @@ import { useEffect } from "react";
 
 
 const MovieDetail = () => {
-  const { id } = useParams();
-  const { movie, trailerKey, similar } = useMovieDetail(id);
+  const { id, type } = useParams<{ id: string, type: "movie" | "tv" }>();
+  if (!id || !type) return null;
+  const { movie, trailerKey, similar } = useMovieDetail(id, type);
 
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  }, [id]);
+  }, [id, type]);
 
 
   if (!movie) return null;
@@ -60,7 +61,7 @@ const MovieDetail = () => {
           </div>
         </div>
       </div>
-      <MovieRow title="Similar" movies={similar} />
+      <MovieRow title="Similar" movies={similar} mediaType={type} />
     </>
   );
 };
