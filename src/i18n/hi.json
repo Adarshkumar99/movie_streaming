@@ -1,0 +1,42 @@
+{
+  "header": {
+    "home": "होम",
+    "search": "खोजें",
+    "show": "शो",
+    "logout": "लॉगआउट"
+  },
+  "homepage": {
+    "trending": "अभी ट्रेंडिंग",
+    "popular": "लोकप्रिय",
+    "top_rated": "टॉप रेटेड",
+    "upcoming": "आने वाली",
+    "weekly_trend": "साप्ताहिक ट्रेंड",
+    "play": " ▶ चलाएँ",
+    "more_info": " ⓘ अधिक जानकारी",
+    "tv": {
+      "tv_popular": "लोकप्रिय टीवी",
+      "shows": "टीवी शो",
+      "air_show": "टीवी एयर शो"
+    },
+    "search": {
+      "search_query": "इसके लिए खोज परिणाम:",
+      "search_result": "आपकी खोज से मेल खाती कोई फ़िल्म नहीं मिली।",
+      "results_title": "परिणाम"
+    },
+    "movie_detail": {
+      "similar": "मिलती-जुलती"
+    }
+  },
+  "footer": {
+    "resources": "संसाधन",
+    "privacy_policy": "गोपनीयता नीति",
+    "contact_us": "संपर्क करें",
+    "follow_us": "हमें फॉलो करें",
+    "github": "गिटहब",
+    "discord": "डिस्कॉर्ड",
+    "legal": "कानूनी",
+    "help_center": "सहायता केंद्र",
+    "terms_conditions": "नियम और शर्तें",
+    "copyright": "© 2023 आदर्श। सर्वाधिकार सुरक्षित।"
+  }
+}

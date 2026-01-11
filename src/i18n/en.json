@@ -1,0 +1,42 @@
+{
+  "header": {
+    "home": "Home",
+    "search": "Search",
+    "show": "Shows",
+    "logout": "Logout"
+  },
+  "homepage": {
+    "trending": "Trending Now",
+    "popular": "Popular",
+    "top_rated": "Top Rated",
+    "upcoming": "Upcoming",
+    "weekly_trend": "Weekly Trends",
+    "play": " ▶ Play",
+    "more_info": " ⓘ More Info",
+    "tv": {
+      "tv_popular": "Tv Popular",
+      "shows": "Shows",
+      "air_show": "Tv AirShow"
+    },
+    "search": {
+      "search_query": "Search results for:",
+      "search_result": "No movies found matching your search.",
+      "results_title": "Results"
+    },
+    "movie_detail": {
+      "similar": "Similar"
+    }
+  },
+  "footer": {
+    "resources": "Resources",
+    "privacy_policy": "Privacy Policy",
+    "contact_us": "Contact Us",
+    "follow_us": "Follow Us",
+    "github": "GitHub",
+    "discord": "Discord",
+    "legal": "Legal",
+    "help_center": "Help Center",
+    "terms_conditions": "Terms & Conditions",
+    "copyright": "© 2023 Adarsh. All Rights Reserved."
+  }
+}

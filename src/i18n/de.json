@@ -1,0 +1,42 @@
+{
+  "header": {
+    "home": "Startseite",
+    "search": "Suche",
+    "show": "Serien",
+    "logout": "Abmelden"
+  },
+  "homepage": {
+    "trending": "Aktuell im Trend",
+    "popular": "Beliebt",
+    "top_rated": "Top bewertet",
+    "upcoming": "Demnächst",
+    "weekly_trend": "Wöchentliche Trends",
+    "play": " ▶ Abspielen",
+    "more_info": " ⓘ Mehr Infos",
+    "tv": {
+      "tv_popular": "Beliebtes TV",
+      "shows": "Serien",
+      "air_show": "TV-Ausstrahlung"
+    },
+    "search": {
+      "search_query": "Suchergebnisse für:",
+      "search_result": "Keine Filme gefunden, die Ihrer Suche entsprechen.",
+      "results_title": "Ergebnisse"
+    },
+    "movie_detail": {
+      "similar": "Ähnlich"
+    }
+  },
+  "footer": {
+    "resources": "Ressourcen",
+    "privacy_policy": "Datenschutzrichtlinie",
+    "contact_us": "Kontakt",
+    "follow_us": "Folge uns",
+    "github": "GitHub",
+    "discord": "Discord",
+    "legal": "Rechtliches",
+    "help_center": "Hilfezentrum",
+    "terms_conditions": "Allgemeine Geschäftsbedingungen",
+    "copyright": "© 2023 Adarsh. Alle Rechte vorbehalten."
+  }
+}

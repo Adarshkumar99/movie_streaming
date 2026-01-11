@@ -1,14 +1,26 @@
 import axios from "axios";
 import { Movie, MovieDetails } from "../types/Movie";
+import i18n from "../i18n/mainTrans";
+
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+
+export const LANGUAGE_MAP: Record<string, string> = {
+  en: "en-US",
+  hi: "hi-IN",
+  de: "de-DE",
+};
+
+const currentLang = i18n.language || "en";
+
 export const api = axios.create({
   baseURL: "https://api.themoviedb.org/3",
   params: {
     api_key: API_KEY,
-    language: "en-US",
+    language: LANGUAGE_MAP[currentLang],
   },
 });
+
 
 export const IMG_URL = "https://image.tmdb.org/t/p/original";
 

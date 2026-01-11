@@ -1,48 +1,82 @@
+import { useTranslation } from "react-i18next";
+
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-neutral-primary-soft mt-50">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+
+            {/* Resources */}
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-white/50 text-heading uppercase">Resources</h2>
+              <h2 className="mb-6 text-sm font-semibold text-heading uppercase text-white/50">
+                {t("footer.resources")}
+              </h2>
               <ul className="text-body font-medium">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline  text-white/50">Privacy Policy</a>
+                  <a href="#" className="hover:underline text-white/50">
+                    {t("footer.privacy_policy")}
+                  </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline  text-white/50">Contact Us</a>
+                  <a href="#" className="hover:underline text-white/50">
+                    {t("footer.contact_us")}
+                  </a>
                 </li>
               </ul>
             </div>
+
+            {/* Follow Us */}
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-heading uppercase  text-white/50">Follow us</h2>
+              <h2 className="mb-6 text-sm font-semibold text-heading uppercase text-white/50">
+                {t("footer.follow_us")}
+              </h2>
               <ul className="text-body font-medium">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline  text-white/50 ">Github</a>
+                  <a href="#" className="hover:underline text-white/50">
+                    {t("footer.github")}
+                  </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline  text-white/50">Discord</a>
+                  <a href="#" className="hover:underline text-white/50">
+                    {t("footer.discord")}
+                  </a>
                 </li>
               </ul>
             </div>
+
+            {/* Legal */}
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-heading uppercase  text-white/50">Legal</h2>
+              <h2 className="mb-6 text-sm font-semibold text-heading uppercase text-white/50">
+                {t("footer.legal")}
+              </h2>
               <ul className="text-body font-medium">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline  text-white/50">Help Center</a>
+                  <a href="#" className="hover:underline text-white/50">
+                    {t("footer.help_center")}
+                  </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline  text-white/50">Terms &amp; Conditions</a>
+                  <a href="#" className="hover:underline text-white/50">
+                    {t("footer.terms_conditions")}
+                  </a>
                 </li>
               </ul>
             </div>
+
           </div>
         </div>
+
         <hr className="my-6 border-default sm:mx-auto lg:my-8 text-white/50" />
+
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-body sm:text-center text-white/50">© 2023 <a href="#" className="hover:underline  text-white/50">Adarsh</a>. All Rights Reserved.
+          <span className="text-sm text-body sm:text-center text-white/50">
+            {t("footer.copyright")}
           </span>
+
+          {/* Social Icons */}
           <div className="flex mt-4 sm:justify-center sm:mt-0">
             <a href="#" className="text-body hover:text-heading">
               <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z" clipRule="evenodd" /></svg>
@@ -68,8 +102,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+  );
+};
 
-  )
-}
-
-export default Footer
+export default Footer;

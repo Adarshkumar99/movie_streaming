@@ -2,12 +2,17 @@ import { useParams } from "react-router-dom";
 import { useMovieDetail } from "../hooks/useMovieDetail";
 import MovieRow from "../components/MovieRow"
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { useFavourites } from "../context/FavouritesContext";
 
 
 const MovieDetail = () => {
   const { id, type } = useParams<{ id: string, type: "movie" | "tv" }>();
+  const { t } = useTranslation();
   if (!id || !type) return null;
   const { movie, trailerKey, similar } = useMovieDetail(id, type);
+  const { isFavourite, addToFavourites, removeFromFavourites } = useFavourites();
+
 
   useEffect(() => {
     window.scrollTo({
@@ -18,6 +23,14 @@ const MovieDetail = () => {
 
 
   if (!movie) return null;
+
+  const handleFavourite = () => {
+    if (isFavourite(movie.id)) {
+      removeFromFavourites(movie.id)
+    } else {
+      addToFavourites(movie)
+    }
+  }
 
   return (
     <>
@@ -58,10 +71,28 @@ const MovieDetail = () => {
                 {genre.name}
               </span>
             ))}
+
+            <button className="inline" onClick={handleFavourite}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill={isFavourite(movie.id) ? "red" : "none"}
+                stroke={isFavourite(movie.id) ? "red" : "white"}
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="transition-colors duration-300"
+              >
+                <path d="M21 8.25c0-2.485-2.099-4.5-4.687-4.5c-1.936 0-3.598 1.126-4.313 2.733c-.715-1.607-2.377-2.733-4.312-2.733C5.098 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12" />
+              </svg>
+            </button>
           </div>
+
         </div>
       </div>
-      <MovieRow title="Similar" movies={similar} mediaType={type} />
+      <MovieRow title={t('homepage.movie_detail.similar')} movies={similar} mediaType={type} />
     </>
   );
 };

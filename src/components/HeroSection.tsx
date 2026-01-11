@@ -2,6 +2,7 @@ import { IMG_URL } from "../api/tmdb";
 import { Link } from "react-router-dom";
 import { Movie } from "../types/Movie";
 import { Dispatch, SetStateAction } from "react";
+import { useTranslation } from "react-i18next";
 
 type HeroSectionProps = {
   heroMovie: Movie | null;
@@ -11,6 +12,8 @@ type HeroSectionProps = {
 };
 const HeroSection = ({ heroMovie, trailerKey, muted, setMuted }: HeroSectionProps) => {
   if (!heroMovie) return null;
+
+  const { t } = useTranslation();
 
   return (
     <section className="relative h-[100vh] w-full overflow-hidden no-scrollbar">
@@ -50,12 +53,12 @@ const HeroSection = ({ heroMovie, trailerKey, muted, setMuted }: HeroSectionProp
         <div className="flex gap-4">
           <Link to={`movie/${heroMovie.id}`}>
             <button className="bg-white text-black px-6 py-2 rounded font-semibold hover:bg-white/80">
-              ▶ Play
+              {t('homepage.play')}
             </button>
 
 
             <button className="bg-gray-500/70 text-white px-6 py-2 rounded font-semibold hover:bg-gray-500/50 mx-4">
-              ⓘ More Info
+              {t('homepage.more_info')}
             </button>
           </Link>
 
