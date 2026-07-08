@@ -137,10 +137,3 @@ The app will be available at `http://localhost:5173/`.
 | `npm run lint`     | Runs ESLint across the codebase                |
 
 ---
-
-
----
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
