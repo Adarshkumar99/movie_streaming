@@ -8,7 +8,6 @@ A Netflix-inspired movie and TV show browsing application built with **React**, 
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-06B6D4?logo=tailwindcss&logoColor=white)
 ![TMDB](https://img.shields.io/badge/API-TMDB-01D277?logo=themoviedatabase&logoColor=white)
 ![CI](https://github.com/Adarshkumar99/movie_streaming/actions/workflows/frontend.yml/badge.svg)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
 
@@ -139,18 +138,6 @@ The app will be available at `http://localhost:5173/`.
 
 ---
 
-## Continuous Integration
-
-Every push and pull request is automatically linted and built via the GitHub Actions workflow defined in `.github/workflows/frontend.yml`.
-
----
-
-## Roadmap
-
-- [ ] Video playback for trailers within the app UI
-- [ ] User authentication and cloud-synced favorites
-- [ ] Infinite scroll / pagination for catalog rows
-- [ ] Additional language support
 
 ---
 
